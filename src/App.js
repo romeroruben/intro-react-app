@@ -1,22 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import Usuario from './components/Usuario/Usuario';
+
+import ListaDeTareas from './components/Tareas/ListaDeTareas';
+
+import Contador from './components/Contador/Contador';
+import { useState } from 'react';
+import Saludo from './components/Saludo/Saludo';
 
 function App() {
+  const [mensaje, setMensaje] = useState('');
+
+  const handleChange = (e) =>
+  {
+    setMensaje(e.target.value)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {/* <Usuario nombre="Ruben" /> */}
+        {/* <ListaDeTareas/> */}
+        {/* <Contador/> */}
+        <input 
+          type='text'
+          placeholder='Ingrese un mensaje'
+          value={mensaje} 
+          onChange={handleChange}/>
+        <Saludo mensaje={mensaje}/>
       </header>
     </div>
   );
